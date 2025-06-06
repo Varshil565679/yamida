@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <span class="floating-text">Moradiya Fucks you</span>
+    </div>
+    <script>
+        
+
+        const audio = new Audio('yamete-kudasai_gxXaCWn.mp3');
+        // Play sound on single click, but not on double click (to allow text selection)
+        let clickTimeout;
+        document.body.addEventListener('click', (e) => {
+            // If the click is part of a double click, ignore
+            if (clickTimeout) return;
+            clickTimeout = setTimeout(() => {
+                audio.currentTime = 0;
+                audio.play();
+                clickTimeout = null;
+            }, 250); // 250ms window for double click
+        });
+        document.body.addEventListener('dblclick', (e) => {
+            clearTimeout(clickTimeout);
+            clickTimeout = null;
+        });
+    </script>
+</body>
+</html>
